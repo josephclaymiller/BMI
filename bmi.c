@@ -61,30 +61,25 @@ float calculateBMI (const char *unitSystem) {
     // get height and weight unit based on system of measurment
     switch (*unitSystem) {
         case 'm':
-            //printf("Metric\n");
+            //Metric
             heightUnit = "meters";
             weightUnit = "kilograms";
-            break;
-        default:
-            //printf("Imperial\n");
-            heightUnit = "inches";
-            weightUnit = "pounds";
-            break;
-    }
-    
-    // Get height and weight from user
-    height = getHeight(heightUnit);
-    weight = getWeight(weightUnit);
-    
-    // get bmi based on system of measurment
-    switch (*unitSystem) {
-        case 'm':
+            // Get height and weight from user
+            height = getHeight(heightUnit);
+            weight = getWeight(weightUnit);
             bmi = metricBMI(height, weight);
             break;
         default:
+            //Imperial
+            heightUnit = "inches";
+            weightUnit = "pounds";
+            // Get height and weight from user
+            height = getHeight(heightUnit);
+            weight = getWeight(weightUnit);
             bmi = imperialBMI(height, weight);
             break;
     }
+    
     return bmi;
 }
 
